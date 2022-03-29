@@ -1,7 +1,3 @@
 class AnswerSimilarity:
-    def __init__(self, vec1, vec2):
-        self.vec1 = vec1
-        self.vec2 = vec2
-
-    def calc_similarity(self):
+    def calc_similarity(self, vec1, vec2):
         raise NotImplementedError("calc_similarity method is not implemented")

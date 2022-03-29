@@ -2,13 +2,12 @@ from answer_similarity import AnswerSimilarity
 
 
 class JaccardSimilaritiy(AnswerSimilarity):
-    def calc_similarity(self):
+    def calc_similarity(self, vec1, vec2):
         count_common = 0
-        for w in self.vec1.keys():
-            if w in self.vec2.keys():
+        for w in vec1.keys():
+            if w in vec2.keys():
                 count_common += 1
-        count_union = len(self.vec1.keys()) + \
-            len(self.vec2.keys()) - count_common
+        count_union = len(vec1.keys()) + len(vec2.keys()) - count_common
 
         if count_union == 0:
             return 1
