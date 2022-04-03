@@ -10,5 +10,5 @@ class JaccardSimilaritiy(AnswerSimilarity):
         count_union = len(ans1.keys()) + len(ans2.keys()) - count_common
 
         if count_union == 0:
-            return 1
+            return 0
         return count_common / count_union

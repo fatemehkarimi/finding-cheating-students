@@ -1,2 +1,2 @@
 class Settings:
-    MIN_CHEAT_BOUNDRY = 0.5
+    MIN_CHEAT_BOUNDRY = 0.7

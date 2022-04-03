@@ -43,8 +43,14 @@ class CheatDetector:
                         'similarity': sim_value,
                         'with who': sim_person}
                     person_cheat_with_set.add(sim_person)
+            suspects = []
+            for who in person_cheat_with_set:
+                suspects.append({
+                    'id': who,
+                    'name': self.person_list[who].name
+                })
             report = {
-                'suspects': list(person_cheat_with_set),
+                'suspects': suspects,
                 'details': person_cheat
             }
             result[str(i)] = report
