@@ -1,6 +1,8 @@
+import json
 import pandas as pd
 from answer import Answer
 from person import Person
+from cheat_detector import CheatDetector
 from tf_idf_similarity import TFIDFSimilarity
 from jaccard_person_similarity import JaccardPersonSimilarity
 
@@ -23,14 +25,17 @@ def main():
     cosine_meter = TFIDFSimilarity(person_list)
     jaccard_meter = JaccardPersonSimilarity(person_list)
 
-    # for i in range(len(person_list)):
-    # for j in range(len(person_list)):
+    jaccard_cheat_detector = CheatDetector(person_list, jaccard_meter)
+    cosine_cheat_detector = CheatDetector(person_list, cosine_meter)
 
-    cosine_sim_matrix = cosine_meter.calc_person_similarity(12, 5)
-    jaccard_sim_matrix = jaccard_meter.calc_person_similarity(12, 5)
-    print(cosine_sim_matrix)
-    print(jaccard_sim_matrix)
-    print("-------------------------------------")
+    result1 = jaccard_cheat_detector.find_cheated()
+    result2 = cosine_cheat_detector.find_cheated()
+
+    with open('jaccard_result.json', 'w') as f:
+        json.dump(result1, f, indent=4)
+
+    with open('cosine_result.json', 'w') as f:
+        json.dump(result2, f, indent=4)
 
 
 if __name__ == "__main__":
