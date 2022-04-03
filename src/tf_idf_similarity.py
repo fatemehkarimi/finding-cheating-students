@@ -1,8 +1,9 @@
 import numpy as np
+from person_similarity import PersonSimilarity
 from cosine_similarity import CosineSimilarity
 
 
-class TFIDFSimilarity:
+class TFIDFSimilarity(PersonSimilarity):
     def __init__(self, person_list):
         self.person_list = person_list
         self.cosine_similarity = CosineSimilarity()
