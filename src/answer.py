@@ -3,10 +3,9 @@ from nltk.tokenize import word_tokenize
 
 
 class Answer:
-    def __init__(self, plain_text, correctness):
+    def __init__(self, plain_text):
         self.ps = PorterStemmer()
         self.plain_text = plain_text
-        self.currectness = correctness
         self.tokens = word_tokenize(self.plain_text)
         self.remove_special_char()
         self.word_freq = {}
